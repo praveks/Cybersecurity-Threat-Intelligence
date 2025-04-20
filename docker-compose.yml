@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./back_end
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    env_file:
+      - ./back_end/.env
+
+  frontend:
+    build: ./front_end
+    ports:
+      - "3000:5173"
+
+  ml-api:
+    build: ./ml_api
+    ports:
+      - "5001:5001"
+
+  mongo:
+    image: mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
