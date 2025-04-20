@@ -3,11 +3,8 @@ import re
 
 app = Flask(__name__)
 
-import re
-
 def is_malicious(input_str):
     input_str = input_str.lower().strip()
-    print("Input:", input_str)
     malicious_keywords = [
         'malware', 'phishing', 'attack', 'bad', 'evil', 'phishy',
         'ransomware', 'exploit', 'trojan', 'keylogger', 'botnet'

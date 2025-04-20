@@ -17,7 +17,7 @@ exports.createThreat = async (req, res) => {
 
     if (inputToCheck) {
       try {
-        const response = await axios.post('http://localhost:5001/predict', {
+        const response = await axios.post('http://ml-api:5001/predict', {
           input: inputToCheck
         });
         isMalicious = response.data.prediction === 'malicious';
