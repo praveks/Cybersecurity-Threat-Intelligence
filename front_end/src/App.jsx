@@ -1,6 +1,5 @@
 import React from 'react';
 import ThreatDashboard from './components/ThreatDashboard';
-import './App.css';
 import Login from './components/login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Signin from './components/signin';

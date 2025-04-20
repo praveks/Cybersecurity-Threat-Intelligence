@@ -14,6 +14,8 @@ services:
     build: ./front_end
     ports:
       - "3000:5173"
+    volumes:
+       - ./front_end:/app
 
   ml-api:
     build: ./ml_api
