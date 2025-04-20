@@ -1,101 +1,152 @@
-/* Background and General Layout */
+
 body {
-    background-color: #f4f7fa;
-    font-family: 'Arial', sans-serif;
+  background-color: #f4f7fa;
+  font-family: 'Arial', sans-serif;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.container {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.table {
+  margin-top: 30px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table th, .table td {
+  padding: 15px 20px;
+  border-bottom: 1px solid #ddd;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table th {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+
+.table tbody tr:hover {
+  background-color: #e2e6ea;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.table-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+  animation: highlight 1s ease-in-out infinite;
+}
+
+@keyframes highlight {
+  0% {
+      background-color: #f8d7da;
   }
-  
-  .container {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+  50% {
+      background-color: #f5c6cb;
   }
-  
-  /* Table Styles */
+  100% {
+      background-color: #f8d7da;
+  }
+}
+
+input.form-control {
+  border-radius: 25px;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+input.form-control:focus {
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+  border-color: #007bff;
+}
+
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+button {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 25px;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+button:active {
+  background-color: #003366;
+  border-color: #002753;
+}
+
+
+@media (max-width: 768px) {
   .table {
-    margin-top: 30px;
-    border-radius: 8px;
-  }
-  
-  .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #f9f9f9;
-  }
-  
-  .table th {
-    background-color: #007bff;
-    color: white;
-    text-align: center;
-  }
-  
-  .table td {
-    vertical-align: middle;
-    text-align: center;
-  }
-  
-  /* Add hover effect for rows */
-  .table tbody tr:hover {
-    background-color: #e2e6ea;
-  }
-  
-  /* Red Highlight for Malicious Threats */
-  .table-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-  }
-  
-  /* Input Search Styling */
-  input.form-control {
-    border-radius: 25px;
-    padding: 12px 20px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-  }
-  
-  input.form-control:focus {
-    box-shadow: none;
-    border-color: #007bff;
-  }
-  
-  /* Header Styling */
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #333;
-    text-align: center;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .table {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
       font-size: 0.85rem;
-    }
-  
-    h1 {
-      font-size: 2rem;
-    }
-  
-    .container {
-      margin-top: 20px;
-    }
   }
 
-  /* Add Animation to High Threat Rows */
-@keyframes highlight {
-    0% {
-      background-color: #f8d7da;
-    }
-    50% {
-      background-color: #f5c6cb;
-    }
-    100% {
-      background-color: #f8d7da;
-    }
+  .table th, .table td {
+      display: block;
+      text-align: right;
+      padding: 10px;
+      border: none;
+      position: relative;
   }
-  
-  .table-danger {
-    animation: highlight 1s ease-in-out infinite;
+
+  .table td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      position: absolute;
+      left: 10px;
+      top: 10px;
   }
-  
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  .container {
+      margin-top: 20px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
