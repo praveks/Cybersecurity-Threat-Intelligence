@@ -7,7 +7,7 @@ def is_malicious(input_str):
     input_str = input_str.lower().strip()
     malicious_keywords = [
         'malware', 'phishing', 'attack', 'bad', 'evil', 'phishy',
-        'ransomware', 'exploit', 'trojan', 'keylogger', 'botnet'
+        'ransomware', 'exploit', 'trojan', 'keylogger', 'botnet','high'
     ]
 
     if any(keyword in input_str for keyword in malicious_keywords):

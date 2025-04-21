@@ -6,7 +6,7 @@ exports.createThreat = async (req, res) => {
     const { ipAddress, domain, url, fileHash, threatLevel, category } =
       req.body;
 
-    let inputToCheck = [url, domain, ipAddress];
+    let inputToCheck = [url, domain, ipAddress ,category];
     let isMalicious = false;
 
     for (let input of inputToCheck) {
