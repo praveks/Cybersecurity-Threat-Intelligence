@@ -1,20 +1,24 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handlelogin = async (e) => {
     e.preventDefault();
     try {
-     const response= await axios.post(`${import.meta.env.VITE_API_URL}/auth/register`, {
-        email,
-        password,
-      });
-      console.log(response.data)
+      const response = await axios.post(
+        `${import.meta.env.VITE_API_URL}/auth/register`,
+        {
+          email,
+          password,
+        }
+      );
+      console.log(response.data);
+      alert("User created successfully");
       navigate("/");
     } catch (err) {
       console.error(
@@ -23,12 +27,13 @@ const Signin = () => {
       );
       alert("signin failed: Invalid credentials");
     }
-  };    
+  };
 
   return (
     <>
       <div className="container">
         <form>
+          <h4 className="text-center fw-bold mb-4 text-primary">SIGNIN</h4>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
               Email address
@@ -52,7 +57,11 @@ const Signin = () => {
               onChange={(e) => setpassword(e.target.value)}
             />
           </div>
-          <button type="submit" className="btn btn-primary" onClick={handlelogin}>
+          <button
+            type="submit"
+            className="btn btn-primary"
+            onClick={handlelogin}
+          >
             Submit
           </button>
         </form>

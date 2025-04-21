@@ -32,9 +32,9 @@ PORT=5000
 MONGO_URI=mongodb://mongo:27017/cyber_dashboard
 JWT_SECRET=your_secret_key_here
 
-### 3. Run the Project
-Run-  docker-compose up --build
-Stop- docker-compose down
+### 3. Run the Project(In Docker)
+Run->  docker-compose up --build
+Stop-> docker-compose down
 
 ### Ports Used
 Frontend-http://localhost:3000
